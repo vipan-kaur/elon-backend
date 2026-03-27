@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(cors({
   origin: "http://localhost:5173"
 }));
-mongoose.connect('mongodb://localhost:27017/elon', {
+mongoose.connect(process.env.MONGO_URL, {
   serverSelectionTimeoutMS: 5000,
   socketTimeoutMS: 45000,
   maxPoolSize: 10

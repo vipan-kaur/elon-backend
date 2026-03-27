@@ -10,7 +10,8 @@ const options={
         servers:[
             {
                 url:"http://localhost:3000"
-            }
+            },
+            {url:"https://elon-backend-m5wx.onrender.com"}
         ]   
     },
     apis:["./route/*.js"]
