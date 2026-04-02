@@ -50,7 +50,7 @@ const { uploads } = require("../multer/multer")
  *       200:
  *         description: Product created successfully
  */
-router.post("/createProduct", uploads.array("images",3), createProduct)
+router.post("/createProduct",uploads.array('image',3), createProduct)
 
 
 

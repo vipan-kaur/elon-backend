@@ -19,7 +19,7 @@ const createProduct=async(req,res)=>{
      const newproduct =new Product({title,description,price,category,images})
          await newproduct.save();
         
-        return res.status(200).json({message:"product is created in", category})
+        return res.status(200).json({message:"product is created in", category , newproduct})
           }catch(error){
     
  return res.status(500).json({message:error.message})}
@@ -105,8 +105,11 @@ const getallProducts =async(req,res)=>{
   if(AllProduct.length===0){
    return res.status(404).json({message:"Not Found"})
   }
-  return res.status(200).json({message:"Data fetched Successfully",AllProduct})
+  return res.status(200).json({
+    message:"Data fetched Successfully",
+    product: AllProduct})
 
 }
+
 
 module.exports={createProduct,updateProduct,deleteProduct,getProductsByCategory,getallProducts,getProductById,getallMenImg}
