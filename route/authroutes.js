@@ -5,6 +5,6 @@ const{ signup,login,verify,getUserbyId}=require("../controller/authcontroller")
 router.post("/signup",signup)
 router.post("/login",login)
 router.post("/verify",verify)
-router.get("/profile",getUserbyId)
+router.get("/profile/:id", getUserbyId)
 
 module.exports=router

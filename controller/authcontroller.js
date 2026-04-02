@@ -11,8 +11,8 @@ const transport = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "vihnikaur@gmail.com",
-    pass: "vytn jsni ekho gjwj"
+    user: "youremaail@@gmail.com",
+    pass: "apasssss"
   }
 
 })
@@ -183,17 +183,17 @@ const verify = async (req, res) => {
   }
 };
 
-const getUserbyId = async () => {
+const getUserbyId = async (req, res) => {
   try {
-    const { id } = req.params()
-    const user = User.findById(id)
+    const { id } = req.params;
+    const user = await User.findById(id);
     if (!user) {
-      res.status(404).json({ message: "user not found" })
+      return res.status(404).json({ message: "user not found" });
     }
-    res.status(200).json({ message: "user", user })
+    res.status(200).json({ message: "user", user });
   } catch (error) {
-    res.status(500).json({ message: err.message })
+    res.status(500).json({ message: error.message });
   }
-}
+};
 
-module.exports = { signup, login, verify, getUserbyId }
+module.exports = { signup, login, verify, getUserbyId };
